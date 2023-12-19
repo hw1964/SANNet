@@ -6,10 +6,11 @@
 
     <groupId>com.github.hw1964</groupId>
     <artifactId>sannet</artifactId>
-    <version>v1.0.6</version>
+    <version>v1.0.7</version>
     <packaging>jar</packaging>
          
     <build>
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
