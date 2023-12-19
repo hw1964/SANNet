@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.hw1964</groupId>
-    <artifactId>SANNet</artifactId>
-    <version>v1.0.0</version>
+    <artifactId>sannet</artifactId>
+    <version>v1.0.2</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
