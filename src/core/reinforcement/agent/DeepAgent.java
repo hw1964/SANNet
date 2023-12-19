@@ -55,7 +55,7 @@ public abstract class DeepAgent implements Agent, Configurable, Serializable {
      * Reference to environment.
      *
      */
-    private final Environment environment;
+    private Environment environment;
 
     /**
      * True if environment is episodic.
@@ -211,6 +211,17 @@ public abstract class DeepAgent implements Agent, Configurable, Serializable {
             policy.setParams(dynamicParam);
             valueFunction.setParams(dynamicParam);
         }
+    }
+
+    /**
+    * Setter for environment
+    *
+    * @param environment reference to environment.
+    * @return this DeepAgent ob
+    */
+    public DeepAgent setEnvironment(Environment environment){
+        this.environment = environment;
+        return this;
     }
 
     /**
