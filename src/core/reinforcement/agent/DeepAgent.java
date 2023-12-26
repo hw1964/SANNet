@@ -515,8 +515,9 @@ public abstract class DeepAgent implements Agent, Configurable, Serializable {
      * @return Function estimator NN for the value functions
      */
     public NeuralNetwork getValueFunctionEstimatorNN(){
-        if(valueFunction == null) return null;
-        if(valueFunction instanceof NNFunctionEstimator)
+        if(valueFunction == null || valueFunction.getFunctionEstimator() == null) return null;
+
+        if(valueFunction.getFunctionEstimator() instanceof NNFunctionEstimator)
             return ((NNFunctionEstimator)valueFunction.getFunctionEstimator()).getNeuralNetwork();
         return null;
     }
@@ -527,8 +528,8 @@ public abstract class DeepAgent implements Agent, Configurable, Serializable {
      * @return NN policy estimator
      */
     public NeuralNetwork getPolicyEstimatorNN(){
-        if(policy == null) return null;
-        if(policy instanceof NNFunctionEstimator)
+        if(policy == null || policy.getFunctionEstimator() == null) return null;
+        if(policy.getFunctionEstimator() instanceof NNFunctionEstimator)
             return ((NNFunctionEstimator)policy.getFunctionEstimator()).getNeuralNetwork();
         return null;
     }
