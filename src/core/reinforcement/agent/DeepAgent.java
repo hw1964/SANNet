@@ -5,7 +5,10 @@
 
 package core.reinforcement.agent;
 
+import core.network.NeuralNetwork;
 import core.network.NeuralNetworkException;
+import core.reinforcement.function.FunctionEstimator;
+import core.reinforcement.function.NNFunctionEstimator;
 import core.reinforcement.policy.Policy;
 import core.reinforcement.value.ValueFunction;
 import utils.configurable.Configurable;
@@ -506,4 +509,27 @@ public abstract class DeepAgent implements Agent, Configurable, Serializable {
      */
     protected abstract void updateFunctionEstimator() throws MatrixException, NeuralNetworkException, DynamicParamException, AgentException, IOException, ClassNotFoundException;
 
+    /**
+     * Getter for the value function estimator NN
+     *
+     * @return Function estimator NN for the value functions
+     */
+    public NeuralNetwork getValueFunctionEstimatorNN(){
+        if(valueFunction == null) return null;
+        if(valueFunction instanceof NNFunctionEstimator)
+            return ((NNFunctionEstimator)valueFunction.getFunctionEstimator()).getNeuralNetwork();
+        return null;
+    }
+
+    /**
+     * Getter for the policy function estimator NN
+     *
+     * @return NN policy estimator
+     */
+    public NeuralNetwork getPolicyEstimatorNN(){
+        if(policy == null) return null;
+        if(policy instanceof NNFunctionEstimator)
+            return ((NNFunctionEstimator)policy.getFunctionEstimator()).getNeuralNetwork();
+        return null;
+    }
 }
