@@ -200,7 +200,7 @@ public abstract class AbstractValueFunction implements ValueFunction, Configurab
             averageTDTarget = averageTDTarget == Double.MIN_VALUE ? state.tdTarget : 0.99 * averageTDTarget + 0.01 * state.tdTarget;
             averageTDError = averageTDError == Double.MIN_VALUE ? state.tdError : 0.99 * averageTDError + 0.01 * state.tdError;
             if (tdDataPrintCycle > 0 && ++tdDataPrintCount >= tdDataPrintCycle) {
-                System.out.println("Average Reward: " + averageReward + ", Average TD target: " + averageTDTarget + ", Average TD error: " + averageTDError);
+//                System.out.println("Average Reward: " + averageReward + ", Average TD target: " + averageTDTarget + ", Average TD error: " + averageTDError);
                 tdDataPrintCount = 0;
             }
         }
